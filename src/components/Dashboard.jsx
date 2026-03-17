@@ -9,7 +9,7 @@ const DAY_NAMES_FULL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 
 
 export default function Dashboard({ userName, onSettings, onHistory }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [completedExercises, setCompletedExercises] = useLocalStorage('barbuds-completed', {});
+  const [completedExercises, setCompletedExercises] = useLocalStorage('willfit-completed', {});
 
   const dayName = DAYS[selectedDate.getDay()];
   const schedule = TRAINING_SCHEDULE[dayName];
@@ -46,7 +46,7 @@ export default function Dashboard({ userName, onSettings, onHistory }) {
       <div className="dash-header">
         <div>
           <div className="dash-logo">
-            BAR<span className="logo-accent">BUDS</span>
+            WILL<span className="logo-accent">FIT</span>
           </div>
           <div className="dash-subtitle">{userName}</div>
         </div>

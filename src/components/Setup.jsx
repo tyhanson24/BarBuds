@@ -22,9 +22,9 @@ export default function Setup({ onStart, onBack }) {
   return (
     <div className="setup">
       <h1 className="logo">
-        BAR<span className="logo-accent">BUDS</span>
+        WILL<span className="logo-accent">FIT</span>
       </h1>
-      <p className="tagline">Push. Pull. Train with your crew.</p>
+      <p className="tagline">Will's road back to fit.</p>
 
       <input
         className="input"

@@ -2,7 +2,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { DAYS, getSessionForDay, getTotalExercises } from '../data/workouts';
 
 export default function History({ onBack }) {
-  const [completedExercises] = useLocalStorage('barbuds-completed', {});
+  const [completedExercises] = useLocalStorage('willfit-completed', {});
 
   const entries = Object.entries(completedExercises)
     .filter(([, completed]) => completed.length > 0)

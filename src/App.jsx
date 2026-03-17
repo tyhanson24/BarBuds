@@ -7,7 +7,7 @@ import Settings from './components/Settings';
 import History from './components/History';
 
 function App() {
-  const [userProfile, setUserProfile] = useLocalStorage('barbuds-profile', null);
+  const [userProfile, setUserProfile] = useLocalStorage('willfit-profile', null);
   const [view, setView] = useState(userProfile ? 'dashboard' : 'landing');
 
   const handleGetStarted = () => setView('setup');
@@ -18,8 +18,8 @@ function App() {
   };
 
   const handleReset = () => {
-    localStorage.removeItem('barbuds-profile');
-    localStorage.removeItem('barbuds-completed');
+    localStorage.removeItem('willfit-profile');
+    localStorage.removeItem('willfit-completed');
     setUserProfile(null);
     setView('landing');
   };
