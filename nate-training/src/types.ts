@@ -137,3 +137,24 @@ export interface Settings {
   programStartDate: string
   surgicalLeg: 'L' | 'R'
 }
+
+export type OneRMLift = 'backSquat' | 'frontSquat' | 'deadlift' | 'trapBar' | 'bench' | 'pushPress' | 'powerClean' | 'overheadPress'
+
+export interface OneRMEntry {
+  lift: OneRMLift
+  date: string
+  value: number
+  reps: number
+  notes?: string
+}
+
+export const ONE_RM_LIFTS: { key: OneRMLift; label: string }[] = [
+  { key: 'backSquat', label: 'Back Squat' },
+  { key: 'frontSquat', label: 'Front Squat' },
+  { key: 'deadlift', label: 'Deadlift' },
+  { key: 'trapBar', label: 'Trap Bar' },
+  { key: 'bench', label: 'Bench Press' },
+  { key: 'pushPress', label: 'Push Press' },
+  { key: 'powerClean', label: 'Power Clean' },
+  { key: 'overheadPress', label: 'Overhead Press' },
+]

@@ -96,7 +96,7 @@ export function InfoView() {
               <button
                 key={id}
                 onClick={() => setOpenTest(id)}
-                className="py-2 bg-ink-700 border border-ink-600 rounded font-display tracking-wider text-xs uppercase text-cream active:bg-ink-600"
+                className="min-h-[44px] px-3 bg-ink-700 border border-ink-600 rounded font-display tracking-wider text-xs uppercase text-cream active:bg-ink-600"
               >
                 {id === 'week1' ? 'Week 1' : id === 'week7' ? 'Week 7' : 'Week 11'}
               </button>

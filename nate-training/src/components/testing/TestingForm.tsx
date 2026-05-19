@@ -93,7 +93,7 @@ export function TestingForm({
         <h1 className="font-display text-3xl tracking-wider uppercase text-cream">
           {testId === 'week1' ? 'Week 1 Baseline' : testId === 'week7' ? 'Week 7 Re-Test' : 'Week 11 Re-Test'}
         </h1>
-        <button onClick={onClose} className="text-steel hover:text-cream text-sm">Close</button>
+        <button onClick={onClose} className="min-h-[44px] px-3 text-cream/80 hover:text-cream text-sm font-display tracking-widest uppercase active:bg-ink-700 rounded">Close</button>
       </div>
       <p className="text-xs text-steel font-mono">All fields optional. Surgical leg = LEFT. LSI auto-calcs.</p>
 
@@ -181,7 +181,7 @@ export function TestingForm({
         <button
           onClick={onSave}
           disabled={saving}
-          className="w-full py-3 bg-ripon text-cream font-display tracking-widest text-base uppercase rounded disabled:opacity-50 active:bg-ripon-dark"
+          className="w-full min-h-[48px] py-3 bg-ripon text-cream font-display tracking-widest text-base uppercase rounded disabled:opacity-50 active:bg-ripon-dark"
         >
           {saving ? 'Saving…' : 'Save Test'}
         </button>
@@ -227,7 +227,7 @@ function NumField({
           step={step ?? '0.1'}
           value={value ?? ''}
           onChange={(e) => onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-          className="flex-1 bg-ink-900 border border-ink-600 rounded px-2 py-1.5 text-sm font-mono text-cream focus:border-ripon focus:outline-none"
+          className="flex-1 min-h-[44px] bg-ink-900 border border-ink-600 rounded px-3 text-base font-mono text-cream focus:border-ripon focus:outline-none"
         />
         {unit && <span className="text-xs font-mono text-steel">{unit}</span>}
       </div>

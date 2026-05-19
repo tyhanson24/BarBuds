@@ -12,8 +12,8 @@ const TABS: { key: TabKey; label: string; Icon: typeof Activity }[] = [
 export function TabNav({ active, onChange }: { active: TabKey; onChange: (k: TabKey) => void }) {
   return (
     <nav
-      className="sticky bottom-0 z-30 h-[64px] bg-ink-900/95 backdrop-blur border-t border-ink-600 grid grid-cols-4"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      className="sticky bottom-0 z-30 bg-ink-900/95 backdrop-blur border-t border-ink-600 grid grid-cols-4"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)', minHeight: 'calc(64px + env(safe-area-inset-bottom))' }}
     >
       {TABS.map(({ key, label, Icon }) => {
         const isActive = active === key
@@ -21,7 +21,7 @@ export function TabNav({ active, onChange }: { active: TabKey; onChange: (k: Tab
           <button
             key={key}
             onClick={() => onChange(key)}
-            className={`flex flex-col items-center justify-center gap-1 ${
+            className={`flex flex-col items-center justify-center gap-1 min-h-[64px] ${
               isActive ? 'text-ripon' : 'text-steel hover:text-cream'
             }`}
           >

@@ -100,21 +100,21 @@ function DayNav({
       <button
         onClick={onPrev}
         disabled={atStart}
-        className="p-2 text-cream disabled:text-steel/40 disabled:cursor-not-allowed"
+        className="min-h-[44px] min-w-[44px] flex items-center justify-center text-cream disabled:text-steel/40 disabled:cursor-not-allowed"
         aria-label="Previous day"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={22} />
       </button>
-      <div className="font-display tracking-widest text-xs uppercase text-cream">
+      <div className="font-display tracking-widest text-xs uppercase text-cream text-center px-2">
         {relative} · {formatWeekDay(week, day)}
       </div>
       <button
         onClick={onNext}
         disabled={atEnd}
-        className="p-2 text-cream disabled:text-steel/40 disabled:cursor-not-allowed"
+        className="min-h-[44px] min-w-[44px] flex items-center justify-center text-cream disabled:text-steel/40 disabled:cursor-not-allowed"
         aria-label="Next day"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={22} />
       </button>
     </div>
   )

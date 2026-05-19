@@ -6,6 +6,8 @@ import type {
   BodyMetric,
   TestResult,
   SetLog,
+  OneRMEntry,
+  OneRMLift,
 } from '../types'
 
 export async function getSettings(): Promise<Settings | null> {
@@ -214,6 +216,49 @@ export async function saveTestResult(t: TestResult): Promise<void> {
       body: t.body ?? null,
     })
   if (error) console.error('saveTestResult', error)
+}
+
+export async function getOneRMs(): Promise<OneRMEntry[]> {
+  const { data, error } = await supabase
+    .from('nate_one_rms')
+    .select('lift, date, value, reps, notes')
+    .eq('user_id', USER_ID)
+    .order('date', { ascending: false })
+  if (error) {
+    console.error('getOneRMs', error)
+    return []
+  }
+  return (data ?? []).map((r) => ({
+    lift: r.lift as OneRMLift,
+    date: r.date,
+    value: Number(r.value),
+    reps: r.reps,
+    notes: r.notes ?? undefined,
+  }))
+}
+
+export async function saveOneRM(entry: OneRMEntry): Promise<void> {
+  const { error } = await supabase
+    .from('nate_one_rms')
+    .upsert({
+      user_id: USER_ID,
+      lift: entry.lift,
+      date: entry.date,
+      value: entry.value,
+      reps: entry.reps,
+      notes: entry.notes ?? null,
+    })
+  if (error) console.error('saveOneRM', error)
+}
+
+export async function deleteOneRM(lift: OneRMLift, date: string): Promise<void> {
+  const { error } = await supabase
+    .from('nate_one_rms')
+    .delete()
+    .eq('user_id', USER_ID)
+    .eq('lift', lift)
+    .eq('date', date)
+  if (error) console.error('deleteOneRM', error)
 }
 
 export async function getAllTestResults(): Promise<Partial<Record<TestResult['testId'], TestResult>>> {

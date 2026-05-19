@@ -111,14 +111,14 @@ export function ExerciseRow({
                 placeholder={exercise.load ?? '—'}
                 value={s.weight ?? ''}
                 onChange={(e) => updateSet(i, { weight: e.target.value })}
-                className="bg-ink-900 border border-ink-600 rounded px-2 py-1.5 text-sm font-mono text-cream focus:border-ripon focus:outline-none"
+                className="min-h-[44px] bg-ink-900 border border-ink-600 rounded px-2 text-base font-mono text-cream focus:border-ripon focus:outline-none"
               />
               <input
                 inputMode="numeric"
                 placeholder={exercise.reps}
                 value={s.reps ?? ''}
                 onChange={(e) => updateSet(i, { reps: e.target.value })}
-                className="bg-ink-900 border border-ink-600 rounded px-2 py-1.5 text-sm font-mono text-cream focus:border-ripon focus:outline-none"
+                className="min-h-[44px] bg-ink-900 border border-ink-600 rounded px-2 text-base font-mono text-cream focus:border-ripon focus:outline-none"
               />
               <input
                 inputMode="numeric"
@@ -128,20 +128,20 @@ export function ExerciseRow({
                   const n = e.target.value === '' ? undefined : Number(e.target.value)
                   updateSet(i, { rpe: n })
                 }}
-                className="bg-ink-900 border border-ink-600 rounded px-2 py-1.5 text-sm font-mono text-cream text-center focus:border-ripon focus:outline-none"
+                className="min-h-[44px] bg-ink-900 border border-ink-600 rounded px-2 text-base font-mono text-cream text-center focus:border-ripon focus:outline-none"
               />
             </div>
           ))}
           <button
             type="button"
             onClick={toggleComplete}
-            className={`mt-2 w-full py-2 rounded font-display tracking-wider text-sm uppercase flex items-center justify-center gap-2 ${
+            className={`mt-2 w-full min-h-[44px] py-2 rounded font-display tracking-wider text-sm uppercase flex items-center justify-center gap-2 ${
               completed
                 ? 'bg-signal-green/15 text-signal-green border border-signal-green/40'
                 : 'bg-ink-700 text-cream border border-ink-600'
             }`}
           >
-            <Check size={16} /> {completed ? 'Done' : 'Mark Set Complete'}
+            <Check size={16} /> {completed ? 'Done' : 'Mark Exercise Done'}
           </button>
         </div>
       )}

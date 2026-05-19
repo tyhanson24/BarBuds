@@ -81,11 +81,14 @@ export function WorkoutDetail({
         ))}
       </div>
 
-      <div className="fixed left-0 right-0 bottom-[64px] px-4 pt-3 pb-3 bg-gradient-to-t from-ink-900 via-ink-900/95 to-ink-900/0">
+      <div
+        className="fixed left-0 right-0 px-3 sm:px-4 pt-3 bg-gradient-to-t from-ink-900 via-ink-900/95 to-ink-900/0"
+        style={{ bottom: 'calc(64px + env(safe-area-inset-bottom))', paddingBottom: '0.75rem' }}
+      >
         <button
           onClick={() => setModalOpen(true)}
           disabled={saving}
-          className={`w-full py-3.5 rounded font-display tracking-widest text-base uppercase flex items-center justify-center gap-2 ${
+          className={`w-full min-h-[52px] py-3.5 rounded font-display tracking-widest text-base uppercase flex items-center justify-center gap-2 ${
             completion
               ? 'bg-signal-green/15 text-signal-green border border-signal-green/40'
               : 'bg-ripon text-cream active:bg-ripon-dark'

@@ -11,12 +11,12 @@ export function Header({
   week: number
   day: DayOfWeek
   phase: Phase
-  onSettings?: () => void
+  onSettings: () => void
 }) {
   return (
-    <header className="sticky top-0 z-30 h-[60px] bg-ink-900/95 backdrop-blur border-b border-ink-600 px-4 flex items-center justify-between">
+    <header className="sticky top-0 z-30 bg-ink-900/95 backdrop-blur border-b border-ink-600 px-3 sm:px-4 flex items-center justify-between" style={{ paddingTop: 'env(safe-area-inset-top)', minHeight: 'calc(60px + env(safe-area-inset-top))' }}>
       <div className="font-display text-2xl tracking-widest text-ripon">RIPON</div>
-      <div className="font-display tracking-wider text-sm text-cream/90 flex items-baseline gap-2">
+      <div className="font-display tracking-wider text-[13px] sm:text-sm text-cream/90 flex items-baseline gap-1.5 sm:gap-2">
         <span>WK {week}</span>
         <span className="text-steel">·</span>
         <span>{dayName(day).toUpperCase()}</span>
@@ -25,7 +25,7 @@ export function Header({
       </div>
       <button
         onClick={onSettings}
-        className="text-steel hover:text-cream p-1 -mr-1"
+        className="text-steel hover:text-cream min-h-[44px] min-w-[44px] flex items-center justify-center -mr-1"
         aria-label="Settings"
       >
         <SettingsIcon size={20} />
